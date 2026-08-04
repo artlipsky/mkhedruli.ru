@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import AlphabetTable from "../components/astro/AlphabetTable.astro";
 import { Faq } from "../components/react/Faq";
+import { Link } from "@heroui/react";
 import { GeorgianTrainer } from "../components/react/Georgian";
 import { FAQ_ITEMS } from "../data/faq";
 
@@ -128,7 +129,13 @@ const jsonLd = {
     </section>
   </main>
 
-  <footer class="mx-auto px-4 pb-10 w-full max-w-3xl text-muted text-xs text-center">
-    mkhedruli.ru — тренажёр букв грузинского алфавита
+  <footer
+    class="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 mx-auto px-4 pb-10 w-full max-w-3xl text-muted text-xs text-center"
+  >
+    <span>mkhedruli.ru — тренажёр букв грузинского алфавита</span>
+    <span aria-hidden>·</span>
+    <span>
+      Разработка — <Link href="https://lipsky.pro" target="_blank" rel="author noopener">lipsky.pro</Link>
+    </span>
   </footer>
 </Layout>

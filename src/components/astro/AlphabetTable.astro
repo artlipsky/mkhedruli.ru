@@ -1,13 +1,9 @@
 ---
+import { Card } from "@heroui/react";
 import { ALPHABET } from "../react/Georgian/letters";
 ---
 
-<div class="bg-background-secondary border border-border rounded-3xl overflow-hidden">
-  <!-- Hand-rolled rather than HeroUI's Table: that one is a react-aria collection
-       and throws "cannot be rendered outside a collection" during the static build,
-       so the letters would only exist after hydration — useless to a crawler.
-       table-fixed + colgroup keeps the pronunciation column from pushing the
-       table past the viewport on phones. -->
+<Card variant="default" className="p-0 rounded-3xl overflow-hidden">
   <table class="table-fixed w-full text-sm border-collapse">
     <caption class="sr-only">
       Все 33 буквы грузинского алфавита мхедрули с названиями и русской транскрипцией
@@ -44,4 +40,4 @@ import { ALPHABET } from "../react/Georgian/letters";
       }
     </tbody>
   </table>
-</div>
+</Card>

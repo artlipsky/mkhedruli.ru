@@ -9,7 +9,6 @@ export interface Level {
   id: string;
   label: string;
   letters: readonly Letter[];
-  /** pair mode: the card shows both letters of a pair, answers are ordered pairs */
   pairs?: readonly LetterPair[];
 }
 
@@ -33,8 +32,6 @@ const CONSONANTS: readonly Letter[] = [
   { ka: "გ", ru: "г" },
 ];
 
-// aspirated stops are marked with х (тх/кх/пх), ejectives read as plain т/к/п;
-// pair order is fixed: ejective (hard) first, aspirated second
 const STOP_PAIRS: readonly LetterPair[] = [
   [
     { ka: "ტ", ru: "т" },
@@ -63,13 +60,11 @@ export const LEVELS: readonly Level[] = [
 
 export interface AlphabetEntry {
   ka: string;
-  /** traditional letter name, transcribed into Russian */
   name: string;
   ru: string;
   note: string;
 }
 
-/** reference table under the trainer: all 33 letters in Georgian alphabetical order */
 export const ALPHABET: readonly AlphabetEntry[] = [
   { ka: "ა", name: "ани", ru: "а", note: "" },
   { ka: "ბ", name: "бани", ru: "б", note: "" },

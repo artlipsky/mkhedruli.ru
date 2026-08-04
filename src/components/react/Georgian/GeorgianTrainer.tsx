@@ -34,11 +34,7 @@ const pairOption = (first: Letter, second: Letter): Option => ({
 
 const letterOption = ({ ru }: Letter): Option => ({ id: ru, label: ru });
 
-// the empty inline-block anchor sits exactly on the text baseline, so the
-// absolutely-positioned rule tracks each font's real baseline without metrics
 const LetterCard = ({ ka }: { ka: string }) => (
-  // default is the darkest of the card surfaces (--surface sits below
-  // --surface-secondary and --surface-tertiary in the dark theme)
   <Card
     variant="default"
     className="z-0 relative flex justify-center items-center rounded-3xl w-36 sm:w-48 h-36 sm:h-48 overflow-hidden"
@@ -68,8 +64,6 @@ export default function GeorgianTrainer() {
     if (pairs) {
       setOptions(pairs.map(([a, b]) => pairOption(a, b)));
     } else {
-      // letters sharing the base Russian sound (т/тх pairs) always make the cut,
-      // otherwise stop-letter cards would be answerable without knowing the pair
       const correct = letters[next];
       const rest = letters.filter((_, i) => i !== next);
       const pairMates = rest.filter((l) => l.ru[0] === correct.ru[0]);
@@ -88,7 +82,6 @@ export default function GeorgianTrainer() {
     }
   }, []);
 
-  // randomize only after hydration so the SSR output stays deterministic
   useEffect(() => {
     dealCard(null, LEVELS[0]);
   }, [dealCard]);
@@ -165,8 +158,6 @@ export default function GeorgianTrainer() {
               key={id}
               onPress={() => answer(id)}
               size="lg"
-              // Button ships no success variant, so a right answer takes the
-              // theme's success tokens rather than a raw green-500
               variant={isWrong ? "danger" : "outline"}
               className={`min-w-16 ${
                 isCorrect ? "bg-success hover:bg-success-hover border-success text-success-foreground" : ""
