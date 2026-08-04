@@ -6,6 +6,7 @@
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-georgian: "Noto Sans Georgian", ui-sans-serif, system-ui, sans-serif;
 
   --blur-4xl: 7.5rem;
 

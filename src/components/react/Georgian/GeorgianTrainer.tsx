@@ -1,6 +1,5 @@
 import { Button, ListBox, ListBoxItem, Select } from "@heroui/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { FONT_VARIANTS, type FontVariant } from "./fonts";
 import { LEVELS, type Letter, type LetterPair, type Level } from "./letters";
 
 const NEXT_DELAY_MS = 800;
@@ -37,9 +36,9 @@ const letterOption = ({ ru }: Letter): Option => ({ id: ru, label: ru });
 
 // the empty inline-block anchor sits exactly on the text baseline, so the
 // absolutely-positioned rule tracks each font's real baseline without metrics
-const LetterCard = ({ ka, font }: { ka: string; font: FontVariant }) => (
+const LetterCard = ({ ka }: { ka: string }) => (
   <div className="z-0 relative flex justify-center items-center bg-background-secondary border border-border rounded-3xl w-48 h-48 overflow-hidden">
-    <span className="text-8xl" style={font}>
+    <span className="font-georgian text-8xl">
       {ka}
       <span aria-hidden className="inline-block relative w-0">
         <span className="-left-96 -right-96 bottom-0 absolute -z-10 border-t border-border border-dashed h-0" />
@@ -51,7 +50,6 @@ const LetterCard = ({ ka, font }: { ka: string; font: FontVariant }) => (
 export default function GeorgianTrainer() {
   const [levelId, setLevelId] = useState(LEVELS[0].id);
   const [current, setCurrent] = useState(0);
-  const [fontIndex, setFontIndex] = useState(0);
   const [options, setOptions] = useState<Option[]>(LEVELS[0].letters.map(letterOption));
   const [wrong, setWrong] = useState<Set<string>>(new Set());
   const [solved, setSolved] = useState(false);
@@ -62,7 +60,6 @@ export default function GeorgianTrainer() {
   const dealCard = useCallback((previousIndex: number | null, { letters, pairs }: Level) => {
     const next = randomIndexExcept(pairs ? pairs.length : letters.length, previousIndex);
     setCurrent(next);
-    setFontIndex((prev) => randomIndexExcept(FONT_VARIANTS.length, prev));
     if (pairs) {
       setOptions(pairs.map(([a, b]) => pairOption(a, b)));
     } else {
@@ -148,11 +145,11 @@ export default function GeorgianTrainer() {
       {displayPair ? (
         <div className="flex gap-4">
           {displayPair.map((letter) => (
-            <LetterCard key={letter.ru} ka={letter.ka} font={FONT_VARIANTS[fontIndex]} />
+            <LetterCard key={letter.ru} ka={letter.ka} />
           ))}
         </div>
       ) : (
-        <LetterCard ka={level.letters[current].ka} font={FONT_VARIANTS[fontIndex]} />
+        <LetterCard ka={level.letters[current].ka} />
       )}
       <div className="flex flex-wrap justify-center gap-3 max-w-md">
         {options.map(({ id, label }) => {
