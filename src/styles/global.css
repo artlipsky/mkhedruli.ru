@@ -5,7 +5,7 @@
 
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  /* Outfit не покрывает кириллицу, поэтому заголовки идут тем же Manrope, но тяжелее */
+  /* Outfit has no Cyrillic coverage, so headings reuse Manrope at a heavier weight */
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-georgian: "Noto Sans Georgian", ui-sans-serif, system-ui, sans-serif;
 

@@ -3,7 +3,7 @@ export interface FaqItem {
   a: string;
 }
 
-/** используется и в разметке страницы, и в JSON-LD FAQPage — ответы должны совпадать дословно */
+/** feeds both the rendered FAQ and the FAQPage JSON-LD, so the two stay word-for-word identical */
 export const FAQ_ITEMS: readonly FaqItem[] = [
   {
     q: "Сколько букв в грузинском алфавите?",

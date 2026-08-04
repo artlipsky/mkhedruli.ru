@@ -63,13 +63,13 @@ export const LEVELS: readonly Level[] = [
 
 export interface AlphabetEntry {
   ka: string;
-  /** традиционное название буквы в русской транскрипции */
+  /** traditional letter name, transcribed into Russian */
   name: string;
   ru: string;
   note: string;
 }
 
-/** справочная таблица под тренажёром: все 33 буквы в порядке грузинского алфавита */
+/** reference table under the trainer: all 33 letters in Georgian alphabetical order */
 export const ALPHABET: readonly AlphabetEntry[] = [
   { ka: "ა", name: "ани", ru: "а", note: "" },
   { ka: "ბ", name: "бани", ru: "б", note: "" },

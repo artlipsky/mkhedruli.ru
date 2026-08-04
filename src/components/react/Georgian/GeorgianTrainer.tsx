@@ -1,4 +1,4 @@
-import { Button, ListBox, ListBoxItem, Select } from "@heroui/react";
+import { Button, Card, ListBox, ListBoxItem, Select } from "@heroui/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LEVELS, type Letter, type LetterPair, type Level } from "./letters";
 
@@ -37,14 +37,19 @@ const letterOption = ({ ru }: Letter): Option => ({ id: ru, label: ru });
 // the empty inline-block anchor sits exactly on the text baseline, so the
 // absolutely-positioned rule tracks each font's real baseline without metrics
 const LetterCard = ({ ka }: { ka: string }) => (
-  <div className="z-0 relative flex justify-center items-center bg-background-secondary border border-border rounded-3xl w-36 sm:w-48 h-36 sm:h-48 overflow-hidden">
+  // default is the darkest of the card surfaces (--surface sits below
+  // --surface-secondary and --surface-tertiary in the dark theme)
+  <Card
+    variant="default"
+    className="z-0 relative flex justify-center items-center rounded-3xl w-36 sm:w-48 h-36 sm:h-48 overflow-hidden"
+  >
     <span className="font-georgian text-7xl sm:text-8xl">
       {ka}
       <span aria-hidden className="inline-block relative w-0">
         <span className="-left-96 -right-96 bottom-0 absolute -z-10 border-t border-border border-dashed h-0" />
       </span>
     </span>
-  </div>
+  </Card>
 );
 
 export default function GeorgianTrainer() {
@@ -160,13 +165,11 @@ export default function GeorgianTrainer() {
               key={id}
               onPress={() => answer(id)}
               size="lg"
-              variant="outline"
+              // Button ships no success variant, so a right answer takes the
+              // theme's success tokens rather than a raw green-500
+              variant={isWrong ? "danger" : "outline"}
               className={`min-w-16 ${
-                isCorrect
-                  ? "bg-green-500 text-white border-green-500"
-                  : isWrong
-                    ? "bg-red-500 text-white border-red-500"
-                    : ""
+                isCorrect ? "bg-success hover:bg-success-hover border-success text-success-foreground" : ""
               }`}
             >
               {label}

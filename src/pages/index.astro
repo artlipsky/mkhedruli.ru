@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import AlphabetTable from "../components/astro/AlphabetTable.astro";
-import Faq from "../components/astro/Faq.astro";
+import { Faq } from "../components/react/Faq";
 import { GeorgianTrainer } from "../components/react/Georgian";
 import { FAQ_ITEMS } from "../data/faq";
 
@@ -124,7 +124,7 @@ const jsonLd = {
 
     <section id="faq" class="flex flex-col gap-6 w-full scroll-mt-8">
       <h2 class="font-semibold text-2xl md:text-3xl text-balance">Частые вопросы</h2>
-      <Faq />
+      <Faq client:visible />
     </section>
   </main>
 

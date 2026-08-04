@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Link } from "@heroui/react";
 ---
 
 <Layout
@@ -13,11 +14,6 @@ import Layout from "../layouts/Layout.astro";
     <p class="max-w-md text-muted text-sm md:text-base text-balance">
       Возможно, ссылка устарела или в адресе опечатка.
     </p>
-    <a
-      href="/"
-      class="bg-background-secondary hover:bg-background-tertiary px-5 py-3 border border-border rounded-2xl font-medium text-sm transition-colors"
-    >
-      К тренажёру алфавита
-    </a>
+    <Link href="/">К тренажёру алфавита</Link>
   </main>
 </Layout>
