@@ -3,8 +3,8 @@ import { Card } from "@heroui/react";
 import { ALPHABET } from "../react/Georgian/letters";
 ---
 
-<Card variant="default" className="p-0 rounded-3xl overflow-hidden">
-  <table class="table-fixed w-full text-sm border-collapse">
+<Card variant="default" className="p-0 rounded-xl overflow-hidden">
+  <table class="w-full text-sm border-collapse table-fixed">
     <caption class="sr-only">
       Все 33 буквы грузинского алфавита мхедрули с названиями и русской транскрипцией
     </caption>
@@ -15,7 +15,7 @@ import { ALPHABET } from "../react/Georgian/letters";
       <col />
     </colgroup>
     <thead>
-      <tr class="text-muted text-[0.65rem] sm:text-xs uppercase tracking-wide">
+      <tr class="text-[0.65rem] text-muted sm:text-xs uppercase tracking-wide">
         <th scope="col" class="px-2 sm:px-4 py-3 font-medium text-center">Буква</th>
         <th scope="col" class="px-2 sm:px-4 py-3 font-medium text-left">Название</th>
         <th scope="col" class="px-2 sm:px-4 py-3 font-medium text-left">Звук</th>
@@ -25,7 +25,7 @@ import { ALPHABET } from "../react/Georgian/letters";
     <tbody>
       {
         ALPHABET.map(({ ka, name, ru, note }) => (
-          <tr class="border-t border-border">
+          <tr class="border-border border-t">
             <th
               scope="row"
               class="px-2 sm:px-4 py-2 font-georgian font-normal text-2xl text-center align-middle"

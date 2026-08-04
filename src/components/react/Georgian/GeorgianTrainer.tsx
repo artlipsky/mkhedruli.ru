@@ -37,7 +37,7 @@ const letterOption = ({ ru }: Letter): Option => ({ id: ru, label: ru });
 const LetterCard = ({ ka }: { ka: string }) => (
   <Card
     variant="default"
-    className="z-0 relative flex justify-center items-center rounded-3xl w-36 sm:w-48 h-36 sm:h-48 overflow-hidden"
+    className="z-0 relative flex justify-center items-center rounded-xl w-36 sm:w-48 h-36 sm:h-48 overflow-hidden"
   >
     <span className="font-georgian text-7xl sm:text-8xl">
       {ka}
@@ -124,14 +124,14 @@ export default function GeorgianTrainer() {
         aria-label="Уровень"
         value={levelId}
         onChange={(key) => changeLevel(String(key))}
-        className="w-64"
+        className="w-full max-w-80"
       >
         <Select.Trigger>
-          <Select.Value />
+          <Select.Value className="text-base!" />
           <Select.Indicator />
         </Select.Trigger>
         <Select.Popover>
-          <ListBox>
+          <ListBox className="text-base">
             {LEVELS.map(({ id, label }) => (
               <ListBoxItem key={id} id={id}>
                 {label}
@@ -149,7 +149,7 @@ export default function GeorgianTrainer() {
       ) : (
         <LetterCard ka={level.letters[current].ka} />
       )}
-      <div className="flex flex-wrap justify-center gap-3 w-full max-w-md">
+      <div className="flex flex-wrap justify-center gap-3 w-full max-w-64 sm:max-w-md">
         {options.map(({ id, label }) => {
           const isCorrect = solved && id === correctId;
           const isWrong = wrong.has(id);
