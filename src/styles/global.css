@@ -5,7 +5,8 @@
 
 @theme {
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  /* Outfit не покрывает кириллицу, поэтому заголовки идут тем же Manrope, но тяжелее */
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-georgian: "Noto Sans Georgian", ui-sans-serif, system-ui, sans-serif;
 
   --blur-4xl: 7.5rem;
@@ -54,6 +55,10 @@ html {
 body {
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+summary::-webkit-details-marker {
+  display: none;
 }
 
 h1,

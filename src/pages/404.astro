@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Страница не найдена — mkhedruli.ru"
+  description="Такой страницы на mkhedruli.ru нет. Вернитесь к тренажёру грузинского алфавита."
+  noindex
+>
+  <main class="flex flex-col justify-center items-center gap-6 p-4 min-h-screen text-center">
+    <p class="font-georgian text-7xl md:text-8xl">ჰ</p>
+    <h1 class="font-semibold text-2xl md:text-4xl text-balance">Страница не найдена</h1>
+    <p class="max-w-md text-muted text-sm md:text-base text-balance">
+      Возможно, ссылка устарела или в адресе опечатка.
+    </p>
+    <a
+      href="/"
+      class="bg-background-secondary hover:bg-background-tertiary px-5 py-3 border border-border rounded-2xl font-medium text-sm transition-colors"
+    >
+      К тренажёру алфавита
+    </a>
+  </main>
+</Layout>

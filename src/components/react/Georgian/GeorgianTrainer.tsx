@@ -37,8 +37,8 @@ const letterOption = ({ ru }: Letter): Option => ({ id: ru, label: ru });
 // the empty inline-block anchor sits exactly on the text baseline, so the
 // absolutely-positioned rule tracks each font's real baseline without metrics
 const LetterCard = ({ ka }: { ka: string }) => (
-  <div className="z-0 relative flex justify-center items-center bg-background-secondary border border-border rounded-3xl w-48 h-48 overflow-hidden">
-    <span className="font-georgian text-8xl">
+  <div className="z-0 relative flex justify-center items-center bg-background-secondary border border-border rounded-3xl w-36 sm:w-48 h-36 sm:h-48 overflow-hidden">
+    <span className="font-georgian text-7xl sm:text-8xl">
       {ka}
       <span aria-hidden className="inline-block relative w-0">
         <span className="-left-96 -right-96 bottom-0 absolute -z-10 border-t border-border border-dashed h-0" />
@@ -123,7 +123,7 @@ export default function GeorgianTrainer() {
   return (
     <section className="flex flex-col items-center gap-8 w-full">
       <Select
-        aria-label="Level"
+        aria-label="Уровень"
         value={levelId}
         onChange={(key) => changeLevel(String(key))}
         className="w-64"
@@ -151,7 +151,7 @@ export default function GeorgianTrainer() {
       ) : (
         <LetterCard ka={level.letters[current].ka} />
       )}
-      <div className="flex flex-wrap justify-center gap-3 max-w-md">
+      <div className="flex flex-wrap justify-center gap-3 w-full max-w-md">
         {options.map(({ id, label }) => {
           const isCorrect = solved && id === correctId;
           const isWrong = wrong.has(id);

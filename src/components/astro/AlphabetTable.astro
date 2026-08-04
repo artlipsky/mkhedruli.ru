@@ -1,0 +1,44 @@
+---
+import { ALPHABET } from "../react/Georgian/letters";
+---
+
+<div class="bg-background-secondary border border-border rounded-3xl overflow-hidden">
+  <!-- table-fixed + colgroup: иначе колонка с произношением раздувает таблицу
+       шире вьюпорта и вся страница начинает скроллиться по горизонтали -->
+  <table class="table-fixed w-full text-sm border-collapse">
+    <caption class="sr-only">
+      Все 33 буквы грузинского алфавита мхедрули с названиями и русской транскрипцией
+    </caption>
+    <colgroup>
+      <col class="w-14 sm:w-20" />
+      <col class="w-20 sm:w-32" />
+      <col class="w-14 sm:w-24" />
+      <col />
+    </colgroup>
+    <thead>
+      <tr class="text-muted text-[0.65rem] sm:text-xs uppercase tracking-wide">
+        <th scope="col" class="px-2 sm:px-4 py-3 font-medium text-center">Буква</th>
+        <th scope="col" class="px-2 sm:px-4 py-3 font-medium text-left">Название</th>
+        <th scope="col" class="px-2 sm:px-4 py-3 font-medium text-left">Звук</th>
+        <th scope="col" class="px-2 sm:px-4 py-3 font-medium text-left">Произношение</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        ALPHABET.map(({ ka, name, ru, note }) => (
+          <tr class="border-t border-border">
+            <th
+              scope="row"
+              class="px-2 sm:px-4 py-2 font-georgian font-normal text-2xl text-center align-middle"
+            >
+              {ka}
+            </th>
+            <td class="px-2 sm:px-4 py-2 text-muted align-middle">{name}</td>
+            <td class="px-2 sm:px-4 py-2 font-medium align-middle">{ru}</td>
+            <td class="px-2 sm:px-4 py-2 text-muted text-xs sm:text-sm align-middle">{note}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
