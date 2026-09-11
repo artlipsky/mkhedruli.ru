@@ -16,8 +16,9 @@ make verify    # astro check + production build
 
 The site targets Russian-language search, so all page copy lives in Russian.
 
-- `src/components/react/Georgian/letters.ts` — trainer levels plus `ALPHABET`, the
-  reference table of all 33 letters rendered under the trainer.
+- `src/components/react/Georgian/letters.ts` — `ALPHABET`, the reference table of all
+  33 letters rendered under the trainer, and the trainer levels, which pick their letters
+  from it so each transcription is defined once.
 - `src/data/faq.ts` — single source for both the visible FAQ and the `FAQPage`
   JSON-LD, so the two can never drift apart.
 - `src/pages/index.astro` — builds the schema.org `@graph` (WebSite, WebApplication,
