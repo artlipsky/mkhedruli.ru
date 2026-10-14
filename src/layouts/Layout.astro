@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
 import Background from "../components/astro/Background.astro";
+import manropeLatin from "@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url";
+import manropeCyrillic from "@fontsource-variable/manrope/files/manrope-cyrillic-wght-normal.woff2?url";
+import notoGeorgian from "@fontsource/noto-sans-georgian/files/noto-sans-georgian-georgian-400-normal.woff2?url";
 
 interface Props {
   title: string;
@@ -52,12 +55,9 @@ const imageUrl = new URL(image, Astro.site).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400&display=swap"
-    />
+    <link rel="preload" href={manropeCyrillic} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={manropeLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={notoGeorgian} as="font" type="font/woff2" crossorigin />
 
     <slot name="head" />
   </head>
